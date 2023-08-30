@@ -1,6 +1,6 @@
-package edu.realemj.assign01;
+package edu.hydes.assign01;
 // NOTE: CHANGE realemj to YOUR SITNETID!!!
-import edu.realemj.testing.*;
+import edu.hydes.testing.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
