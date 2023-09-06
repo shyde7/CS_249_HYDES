@@ -6,3 +6,5 @@ include ':howdyfx'
 
 include ':assign01'
 
+include ':exercises'
+
