@@ -9,7 +9,7 @@ public class NPC
     public NPC() {}
 
     //NPC Constructor
-    public NPC(int h, char r,) {
+    public NPC(int h, char r) {
         //health = h;
         //relationship = r;
         setHealth(h);

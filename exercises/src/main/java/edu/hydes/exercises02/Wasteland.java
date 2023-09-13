@@ -8,7 +8,7 @@ public class Wasteland
 
         NPC bob = new NPC();
         NPC sue = new NPC();
-        NPC jim = new NPC(h: 90, r: 'E');
+        NPC jim = new NPC(90, 'E');
 
         int h = bob.getHealth();
         h -= 5;
