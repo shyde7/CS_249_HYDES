@@ -19,14 +19,14 @@ test {
 }
 
 application {
-    mainClass = "edu.hydes.assign01.Greetings"
-    mainModule = "assign01mod"
+    mainClass = "edu.hydes.exercises07.RandomGrader"
+    mainModule = "exercisesmod"
 }
 
 task runApp(type: JavaExec, dependsOn: build) {
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs = ['--module-path', classpath.asPath]
-    mainModule = "assign01mod"
+    mainModule = "exercisesmod"
     group "application"
     standardInput = System.in
 }

@@ -7,4 +7,4 @@ include ':howdyfx'
 include ':assign01'
 include ':assign02'
 
-include ':profexercises'
+include ':exercises'
