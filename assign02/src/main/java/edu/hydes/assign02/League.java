@@ -27,6 +27,7 @@ public class League {
         p.setHeight(heightInches);
         p.setWeight(weightPounds);
 
+        System.out.println(p);
 
     }
 }
