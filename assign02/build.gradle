@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.realemj.assign02.League"
+    mainClass = "edu.hydes.assign02.League"
     mainModule = "assign02mod"
 }
 
