@@ -30,3 +30,4 @@ task runApp(type: JavaExec, dependsOn: build) {
     group "application"
     standardInput = System.in
 }
+
