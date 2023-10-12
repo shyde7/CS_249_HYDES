@@ -7,6 +7,15 @@ public class Matrix {
         m = new double[rowCnt][colCnt];
     }
 
+    public Matrix(Matrix other) {
+        m = new double[other.getRowCnt()][other.getColCnt()];
+        for(int i = 0; i < other.getRowCnt(); i++) {
+            for(int j = 0; j < other.getColCnt(); j++) {
+                m[i][j] = other.m[i][j];
+            }
+        }
+    }
+
     public int getRowCnt() {
         return m.length;
     }
@@ -48,6 +57,20 @@ public class Matrix {
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    public String toPoint3DString() {
+        if(isPoint3D()) {
+            return "(" + m[0][0] + "," + m[1][0] + "," + m[2][0] + ")";
+        }
+        else {
+            return "()";
+        }
+    }
+
+    public boolean isPoint3D() {
+        return (getColCnt() == 1 &&
+                (getRowCnt() == 3 || getRowCnt() == 4));
     }
 
     public static Matrix makePoint3D(double x, double y, double z) {
