@@ -68,11 +68,22 @@ public class Narrator {
 
         for(int i = 0; i < height; i++ ){
             for(int j = 0; j < width; j++){
-            if(i % 4 == 0){
+            if(j % 4 == 0){
                 narrationCard.append(generateBoundaryLine());
                 narrationCard.append(generateCenteredLine(""));
             }
-            if(i - )
+            int numWidthLeft = width - j;
+            int numHeightLeft = height - i;
+
+            if(numWidthLeft < 4 && numHeightLeft < 4){
+                //LINE COUNT WILL BE HOWEVER MASNY LEFT
+                //EXTRA LINE COUNT WILL BE 4
+            }
+            else{
+                //LINE COUNT = 4
+                //EXTRA LINE COUNT = 0
+                narrationCard.append(lines);
+            }
         }
 
         return narrationCard.toString();
