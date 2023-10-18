@@ -11,12 +11,11 @@ public class SilentFilm {
 
         System.out.println("Enter number of lines:");
         String numLines = input.nextLine();
-        Integer.parseInt(numLines);
 
-        String [] allLines = new String[numLines];
+        String [] allLines = new String[Integer.parseInt(numLines)];
 
         System.out.println("Enter lines:");
-        for(int i = 0; i < numLines; i++){
+        for(int i = 0; i < allLines.length; i++){
             allLines[i] = input.nextLine();
         }
 
@@ -27,7 +26,7 @@ public class SilentFilm {
 
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
-        Narrator n = askForNarration();
+        Narrator n = askForNarration(input);
 
 
         System.out.println("Our story begins...");

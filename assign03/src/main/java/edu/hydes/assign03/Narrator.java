@@ -63,32 +63,33 @@ public class Narrator {
 
     public String toString(){
         StringBuilder narrationCard = new StringBuilder();
-        int width = 50;
         int height = 8;
 
-        for(int i = 0; i < height; i++ ){
-            for(int j = 0; j < width; j++){
-            if(j % 4 == 0){
-                narrationCard.append(generateBoundaryLine());
-                narrationCard.append(generateCenteredLine(""));
-            }
-            int numWidthLeft = width - j;
-            int numHeightLeft = height - i;
 
-            if(numWidthLeft < 4 && numHeightLeft < 4){
-                //LINE COUNT WILL BE HOWEVER MASNY LEFT
-                //EXTRA LINE COUNT WILL BE 4
-            }
-            else{
-                //LINE COUNT = 4
-                //EXTRA LINE COUNT = 0
-                narrationCard.append(lines);
-            }
+        for(int i = 0; i < lines.length(); i+=4 ){
+            narrationCard.append(generateBoundaryLine());
+            narrationCard.append(generateCenteredLine(""));
+
+                int extraLineCount = 0;
+                int linesLeft = lines.length() - i;
+                if(linesLeft >= 4){
+                    extraLineCount = 4 - linesLeft;
+                    lines += linesLeft;
+                }
+                else{
+                    linesLeft = 4;
+                    extraLineCount = 0;
+
+                    narrationCard.append(lines);
+                    narrationCard.append(extraLineCount);
+                }
+                narrationCard.append("\n");
+                narrationCard.append(generateBoundaryLine());
+
+
         }
 
         return narrationCard.toString();
-
-            //GET HELP
     }
 
 
