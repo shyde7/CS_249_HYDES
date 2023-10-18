@@ -3,7 +3,7 @@ package edu.hydes.assign03;
 public class Narrator {
 
     private char boundaryChar;
-    private String lines;
+    private String [] lines;
 
 
     public Narrator(String [] lines, char boundaryChar){
@@ -17,8 +17,11 @@ public class Narrator {
     }
 
     public String getLines(){
-        lines += "\n";
-        return lines;
+        StringBuilder sb = new StringBuilder();
+        for (String line : lines) {
+            sb.append(line).append("\n");
+        }
+        return sb.toString();
     }
 
     public void setBoundaryChar(char boundaryChar){
@@ -27,63 +30,72 @@ public class Narrator {
     }
 
     public void setLines(String [] lines){
-        String [] linesCopy = new String[0];
+        this.lines = new String[lines.length];
         for(int i= 0; i < lines.length; i++){
-            linesCopy[i] = lines[i];
+            this.lines[i] = lines[i];
         }
     }
 
     public String generateBoundaryLine(){
-        String boundaryLine = "";
+        StringBuilder boundaryLine = new StringBuilder();
         for(int i = 0; i < 50; i++){
-            boundaryLine += boundaryChar;
+            boundaryLine.append(boundaryChar);
         }
-        System.out.println("\n");
-        return boundaryLine;
+        boundaryLine.append("\n");
+        return boundaryLine.toString();
     }
 
     public String generateCenteredLine(String text){
         StringBuilder centeredLine = new StringBuilder();
 
-        centeredLine.append(boundaryChar);
-        int totalSpaces = (50 - text.length()) -2;
+        int totalSpaces = 50 - text.length() - 2;
 
         int halfTotalSpaces = totalSpaces / 2;
         int secondHalfSpaces = totalSpaces - halfTotalSpaces;
 
-        centeredLine.append(halfTotalSpaces);
-        centeredLine.append(text);
-        centeredLine.append(secondHalfSpaces);
         centeredLine.append(boundaryChar);
-        centeredLine.append("\n");
+        for (int i = 0; i < halfTotalSpaces; i++) {
+            centeredLine.append(' ');
+        }
+
+        centeredLine.append(text);
+
+        for (int i = 0; i < secondHalfSpaces; i++) {
+            centeredLine.append(' ');
+        }
+
+        centeredLine.append(boundaryChar);
+        centeredLine.append('\n');
+
         return centeredLine.toString();
 
-        //GET HELP
     }
 
     public String toString(){
         StringBuilder narrationCard = new StringBuilder();
-        int height = 8;
 
-
-        for(int i = 0; i < lines.length(); i+=4 ){
+        for(int i = 0; i < lines.length; i+=4 ){
             narrationCard.append(generateBoundaryLine());
             narrationCard.append(generateCenteredLine(""));
 
+                int lineCount = 0;
                 int extraLineCount = 0;
-                int linesLeft = lines.length() - i;
-                if(linesLeft >= 4){
+                int linesLeft = lines.length - i;
+                if(linesLeft < 4){
                     extraLineCount = 4 - linesLeft;
-                    lines += linesLeft;
+                    lineCount = linesLeft;
                 }
                 else{
-                    linesLeft = 4;
+                    lineCount = 4;
                     extraLineCount = 0;
-
-                    narrationCard.append(lines);
-                    narrationCard.append(extraLineCount);
                 }
-                narrationCard.append("\n");
+                for(int j = 0; j < lineCount; j++ ){
+                    narrationCard.append(generateCenteredLine(lines[i+j]));
+                }
+                for(int j = 0; j < extraLineCount; j++){
+                    narrationCard.append(generateCenteredLine(""));
+                }
+                narrationCard.append(generateCenteredLine(""));
                 narrationCard.append(generateBoundaryLine());
 
 
