@@ -1,11 +1,11 @@
-plugins {   
-    id 'application'   
+plugins {
+    id 'application'
 }
 
 version = '1.0'
 
-repositories {  
-    mavenCentral()    
+repositories {
+    mavenCentral()
 }
 
 dependencies {
@@ -19,16 +19,15 @@ test {
 }
 
 application {
-    mainClass = "edu.realemj.exercises12.SuperShapeLand"
-    mainModule = "profexercisesmod"
+    mainClass = "edu.realemj.assign04.Architect"
+    mainModule = "assign04mod"
 }
 
-task runApp(type: JavaExec, dependsOn: build) {
+task runApp(type: JavaExec, dependsOn: compileJava) {
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs = ['--module-path', classpath.asPath]
-    mainModule = "profexercisesmod"
+    mainModule = "assign04mod"
     group "application"
     standardInput = System.in
 }
-
 
