@@ -6,7 +6,9 @@ public class Circle {
     private double radius = 1.0;
     private Matrix center = Matrix.makePoint3D(0,0,0);
 
-    public Circle() {}
+    public Circle() {
+        this(1.0);
+    }
 
     public Circle(double r) {
         setRadius(r);
@@ -16,9 +18,9 @@ public class Circle {
         return radius;
     }
 
-    public void setRadius(double r) {
-        if(r >= 0) {
-            radius = r;
+    public void setRadius(double radius) {
+        if(radius >= 0) {
+            this.radius = radius;
         }
     }
 

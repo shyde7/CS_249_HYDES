@@ -1,5 +1,7 @@
 package edu.realemj.exercises03;
 
+import java.util.*;
+
 public class Party {
     private Person [] people;
 
@@ -55,5 +57,30 @@ public class Party {
         livingFolks[deathIndex].setAlive(false);
 
         return true;
+    }
+
+    public static Party askForPartyMembers(Scanner input) {
+        System.out.println("How many party members?");
+        String cntStr = input.nextLine();
+        int cnt = Integer.parseInt(cntStr);
+        String [] names = new String[cnt];
+        System.out.println("Enter names:");
+        for(int i = 0; i < cnt; i++) {
+            names[i] = input.nextLine();
+        }
+        Party p = new Party(names);
+        return p;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("** PARTY MEMBERS **\n");
+        for(Person p: people) {
+            sb.append("* ");
+            sb.append(p);
+            sb.append("\n");
+        }
+        sb.append("*******************\n");
+        return sb.toString();
     }
 }
