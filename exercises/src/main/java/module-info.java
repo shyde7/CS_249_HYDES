@@ -7,5 +7,7 @@ module exercisesmod {
     exports edu.hydes.exercises07;
     exports edu.hydes.exercises09;
     exports edu.hydes.exercises10;
-
+    exports edu.hydes.exercises11;
+    exports edu.hydes.exercises12;
+    exports edu.hydes.exercises13;
         }
