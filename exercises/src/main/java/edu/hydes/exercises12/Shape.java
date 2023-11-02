@@ -41,4 +41,19 @@ public class Shape {
     public void setCenter(Matrix center){
         this.center = new Matrix(center);
     }
+
+    public double getArea(){
+        return 0.0;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        boolean isEqual = false;
+        if(obj instanceof Shape other){
+            if(filled == other.filled){
+                isEqual = true;
+            }
+        }
+        return isEqual;
+    }
 }

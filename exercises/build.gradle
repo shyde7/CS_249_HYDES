@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.hydes.exercises12.SuperShapeLand"
+    mainClass = "edu.hydes.exercises13.Quotient"
     mainModule = "exercisesmod"
 }
 
