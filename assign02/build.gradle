@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.hydes.assign02.League"
+    mainClass = "edu.hydes.assign03.Narrator"
     mainModule = "assign02mod"
 }
 
@@ -30,3 +30,4 @@ task runApp(type: JavaExec, dependsOn: build) {
     group "application"
     standardInput = System.in
 }
+

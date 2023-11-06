@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>120</y>
+      <w>310</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>ScreenBuffer
+--
+-rowCnt: int
+-colCnt: int
+-fillChar: char
+-screen: char[][]
+--
++ScreenBuffer(rowCnt:int, colCnt:int, fillChar:int)
++clear(): void
++getRowCnt: int
++getColCnt: int
++isValidPosition(row:int, col:int):boolean
++getPos(row:int, col:int):char
++setPos(row:int, col:int, c:char):boolean
++toString():String
++getDisplayString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

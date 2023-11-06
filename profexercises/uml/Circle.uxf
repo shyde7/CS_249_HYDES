@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>120</y>
+      <w>370</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Circle
+--
+-radius:double
+-center:Matrix
+--
++Circle()
++Circle(r:double)
++getRadius():double
++setRadius(radius:double):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
