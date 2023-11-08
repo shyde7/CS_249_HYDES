@@ -1,6 +1,7 @@
 package edu.realemj.exercises12;
 
 import edu.realemj.exercises09.*;
+import edu.realemj.exercises13.InvalidRadiusException;
 public class Circle extends Shape {
     private double radius = 1.0;
 
@@ -8,19 +9,19 @@ public class Circle extends Shape {
         // super();
     }
 
-    public Circle(double radius) {
+    public Circle(double radius) throws InvalidRadiusException {
         // super();
         setRadius(radius);
     }
 
-    public Circle(double radius, Matrix center) {
+    public Circle(double radius, Matrix center) throws InvalidRadiusException {
         super(center);
         setRadius(radius);
     }
 
     public Circle(double radius,
                   Matrix center,
-                  boolean filled) {
+                  boolean filled) throws InvalidRadiusException {
         super(center, filled);
         setRadius(radius);
         //setCenter(center);
@@ -28,9 +29,12 @@ public class Circle extends Shape {
     }
 
     public double getRadius() { return radius; }
-    public void setRadius(double radius) {
+    public void setRadius(double radius) throws InvalidRadiusException {
         if(radius >= 0.0) {
             this.radius = radius;
+        }
+        else {
+            throw new InvalidRadiusException("Bad radius: " + radius);
         }
     }
 
@@ -51,4 +55,21 @@ public class Circle extends Shape {
          */
     }
 
+    public double getArea() {
+        return Math.PI*radius*radius;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean isEqual = false;
+        if(obj instanceof Circle other) {
+            final double EPS = 1e-08;
+            if(Math.abs(radius - other.radius) < EPS
+                && super.equals(other)) {
+                // Radii are equal
+                isEqual = true;
+            }
+        }
+        return isEqual;
+    }
 }
