@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.hydes.exercises13.Quotient"
+    mainClass = "edu.hydes.exercises13.OBJModel"
     mainModule = "exercisesmod"
 }
 

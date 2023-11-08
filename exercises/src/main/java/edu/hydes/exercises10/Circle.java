@@ -1,14 +1,14 @@
 package edu.hydes.exercises10;
 
 import edu.hydes.exercises09.Matrix;
-
+import edu.hydes.exercises13.InvalidRadiusException;
 public class Circle {
     private double radius = 1.0;
     private Matrix center = Matrix.makePoint3D(0, 0, 0);
 
     public Circle(){}
 
-    public Circle(double r) {
+    public Circle(double r)throws InvalidRadiusException {
         setRadius(r);
     }
 
@@ -17,9 +17,12 @@ public class Circle {
         return radius;
     }
 
-    public void setRadius(double r) {
-        if(r >= 0) {
-            radius = r;
+    public void setRadius(double r) throws InvalidRadiusException {
+        if(radius >= 0) {
+            this.radius = radius;
+        }
+        else{
+            throw new InvalidRadiusException("Bad Radius: " + radius);
         }
     }
 
