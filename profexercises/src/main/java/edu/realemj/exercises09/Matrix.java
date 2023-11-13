@@ -121,4 +121,16 @@ public class Matrix {
         t.set(3,3, 1);
         return t;
     }
+
+    public static Matrix makeZRotation3D(double degrees) {
+        double angle = Math.toRadians(degrees);
+        Matrix t = new Matrix(4,4);
+        t.set(0,0,Math.cos(angle));
+        t.set(0,1,-Math.sin(angle));
+        t.set(1,0,Math.sin(angle));
+        t.set(1,1, Math.cos(angle));
+        t.set(2,2,1);
+        t.set(3,3,1);
+        return t;
+    }
 }

@@ -2,15 +2,20 @@ package edu.realemj.exercises12;
 
 import edu.realemj.exercises09.Matrix;
 import edu.realemj.exercises13.InvalidRadiusException;
+import edu.realemj.exercises14.*;
+import java.util.*;
 
 public class SuperShapeLand {
     public static void main(String [] args) {
         try {
+            /*
+            // Cannot use now that Shape is abstract
             Shape s1 = new Shape();
             Shape s2 = new Shape(Matrix.makePoint3D(1, 2, 3), true);
 
             System.out.println(s1);
             System.out.println(s2);
+             */
 
             Circle c2 = new Circle(7.8,
                     Matrix.makePoint3D(4, 5, 6),
@@ -26,11 +31,14 @@ public class SuperShapeLand {
             System.out.println(c3);
 
             Shape[] allShapes = new Shape[3];
-            allShapes[0] = new Shape();
+            allShapes[0] = new Circle(); // new Shape();
             allShapes[1] = new Circle(4.0);
             allShapes[2] = new Rectangle(2, 9);
 
             printShapeAreas(allShapes);
+
+            Loadable item = new Circle();
+            item.load(new Scanner("4.5"));
 
             Circle grief = new Circle(-3.0);
         }

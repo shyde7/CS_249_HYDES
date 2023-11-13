@@ -68,7 +68,9 @@ public class OBJModel {
         OBJModel model = new OBJModel();
         try {
             model.load("bunny.obj");
-            Matrix t = Matrix.makeScaling3D(1,2,1);
+            Matrix s = Matrix.makeScaling3D(1,2,1);
+            Matrix r = Matrix.makeZRotation3D(45);
+            Matrix t = r.multiply(s);
             model.transform(t);
             model.save("bunnyTransformed.obj");
         }
