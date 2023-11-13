@@ -4,11 +4,9 @@ public class Rectangle extends Shape {
     private int width;
     private int height;
 
-    private int radius;
-
     public Rectangle(int width, int height) {
-        this.height = height;
         this.width = width;
+        this.height = height;
     }
 
     @Override
@@ -16,23 +14,25 @@ public class Rectangle extends Shape {
         String old = super.toString();
         int pindex = old.indexOf("(");
         old = old.substring(pindex + 1);
-        return "Rectangle (width=" +
-                +width + ", height="
+        return "Rectangle (width="
+                + width + ", height="
                 + height + ", " + old;
     }
-@Override
+
+    public double getArea() {
+        return width*height;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         boolean isEqual = false;
-        if(obj instanceof Rectangle other){
-
-            if(radius == other.radius){
+        if(obj instanceof Rectangle other) {
+            if(width == other.width
+                    && height == other.height
+                    && super.equals(other)) {
                 isEqual = true;
             }
         }
         return isEqual;
     }
 }
-
-
-
-
