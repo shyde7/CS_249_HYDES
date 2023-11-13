@@ -40,6 +40,27 @@ public class SuperShapeLand {
             Loadable item = new Circle();
             item.load(new Scanner("4.5"));
 
+            Circle [] allCircles = {
+                    new Circle(0.5),
+                    new Circle(1.2),
+                    new Circle(18.5),
+                    new Circle(7.3),
+                    new Circle(0.01)
+            };
+
+            System.out.println("BEFORE:");
+            for(Circle myc: allCircles) {
+                System.out.println("* " + myc);
+            }
+
+            Arrays.sort(allCircles);
+
+            System.out.println("AFTER:");
+            for(Circle myc: allCircles) {
+                System.out.println("* " + myc);
+            }
+
+
             Circle grief = new Circle(-3.0);
         }
         catch(InvalidRadiusException r) {

@@ -4,8 +4,21 @@ import edu.realemj.exercises09.*;
 import edu.realemj.exercises13.InvalidRadiusException;
 import edu.realemj.exercises14.*;
 import java.util.*;
-public class Circle extends Shape implements Loadable {
+public class Circle extends Shape
+        implements Loadable, Comparable<Circle> {
     private double radius = 1.0;
+
+    public int compareTo(Circle other) {
+        if(this.equals(other)) {
+            return 0;
+        }
+        else if(this.radius < other.radius) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
+    }
 
     public Circle() {
         // super();
