@@ -2,7 +2,9 @@ package edu.hydes.exercises12;
 
 import edu.hydes.exercises09.*;
 import edu.hydes.exercises13.InvalidRadiusException;
-public class Circle extends Shape {
+import edu.hydes.exercises14.*;
+import java.util.*;
+public class Circle extends Shape implements Loadable {
     private double radius = 1.0;
 
     public Circle() {
@@ -26,6 +28,10 @@ public class Circle extends Shape {
         setRadius(radius);
         //setCenter(center);
         //setFilled(filled);
+    }
+
+    public void load(Scanner input){
+        radius = input.nextDouble();
     }
 
     public double getRadius() { return radius; }

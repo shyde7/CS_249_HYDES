@@ -2,22 +2,22 @@ package edu.hydes.exercises12;
 
 import edu.hydes.exercises09.*;
 
-public class Shape {
+public abstract class Shape {
 
     private boolean filled;
     private Matrix center = Matrix.makePoint3D(0,0,0);
 
-    public Shape() {}
+    protected Shape() {}
 
-    public Shape(boolean filled){
+    protected Shape(boolean filled){
         this(Matrix.makePoint3D(0,0,0), filled);
     }
 
-    public Shape(Matrix center){
+    protected Shape(Matrix center){
         this(center, false);
     }
 
-    public Shape(Matrix center, boolean filled){
+    protected Shape(Matrix center, boolean filled){
         setFilled(filled);
         setCenter(center);
     }
@@ -42,9 +42,8 @@ public class Shape {
         this.center = new Matrix(center);
     }
 
-    public double getArea(){
-        return 0.0;
-    }
+    public abstract double getArea();
+
 
     @Override
     public boolean equals(Object obj){

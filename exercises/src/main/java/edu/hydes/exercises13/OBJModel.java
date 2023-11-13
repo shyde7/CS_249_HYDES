@@ -8,71 +8,73 @@ public class OBJModel {
     private ArrayList<Matrix> vertices = new ArrayList<>();
     private ArrayList<Face> faces = new ArrayList<>();
 
-    private String getVertString(Matrix v){
-        return "v" + v.get(0, 0) +
+    private String getVertString(Matrix v) {
+        return "v " + v.get(0,0) +
                 " " + v.get(1, 0) +
                 " " + v.get(2, 0);
     }
 
-    public void save(String filename)throws IOException {
+    public void save(String filename) throws IOException {
         try (
                 PrintWriter output = new PrintWriter(filename);
         ) {
-            for (Matrix v : vertices) {
+            for(Matrix v: vertices) {
                 output.println(getVertString(v));
             }
-            for (Face f : faces) {
+            for(Face f: faces) {
                 output.println(f);
             }
         }
     }
 
-    public void load(String filename)throws IOException{
-        try(
+    public void load(String filename) throws IOException {
+        try (
                 Scanner fileInput = new Scanner(new File(filename));
-
-                ){
-            while(fileInput.hasNextLine()){
+        ) {
+            while(fileInput.hasNextLine()) {
                 String line = fileInput.nextLine();
                 line = line.trim();
-                if(!line.isEmpty()){
+                if(!line.isEmpty()) {
                     Scanner parseLine = new Scanner(line);
                     String token = parseLine.next();
-                    if(token.equals("v")){
-                        //Vertex
+                    if(token.equals("v")) {
+                        // Vertex
                         double x = parseLine.nextDouble();
                         double y = parseLine.nextDouble();
                         double z = parseLine.nextDouble();
-                        Matrix v = new Matrix.makePoint3D(x, y, z);
+                        Matrix v = Matrix.makePoint3D(x,y,z);
                         vertices.add(v);
                     }
-                    else if(token.equals("f")){
-                        //Face
+                    else if(token.equals("f")) {
+                        // Face
                         int i0 = parseLine.nextInt();
                         int i1 = parseLine.nextInt();
                         int i2 = parseLine.nextInt();
-                        Face f = new Face(i0, i1, i2);
+                        Face f = new Face(i0,i1,i2);
                         faces.add(f);
                     }
                 }
             }
         }
     }
-    public void transform(Matrix t){
-        for(Matrix v : vertices){
+
+    public void transform(Matrix t) {
+        for(Matrix v: vertices) {
             v.copyFrom(t.multiply(v));
         }
     }
 
-    public static void main(String [] args){
+    public static void main(String [] args) {
         OBJModel model = new OBJModel();
-        try{
+        try {
             model.load("bunny.obj");
-            Matrix t = Matrix.makeScaling3D(1,2,1);
+            Matrix s = Matrix.makeScaling3D(1,2,1);
+            Matrix r = r.multiply(Matrix.makeZRotation3D(45));
+            Matrix t = t = r.multiply(s);
             model.transform(t);
             model.save("bunnyTransformed.obj");
         }
-        catch(Exception e){
+        catch(Exception e) {
             System.err.println(e);
         }
     }

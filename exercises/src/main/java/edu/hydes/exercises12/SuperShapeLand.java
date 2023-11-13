@@ -2,15 +2,20 @@ package edu.hydes.exercises12;
 
 import edu.hydes.exercises09.Matrix;
 import edu.hydes.exercises13.InvalidRadiusException;
-
+import edu.hydes.exercises14.*;
+import java.util.*;
 public class SuperShapeLand {
     public static void main(String [] args) {
         try {
+            /*
+            //CANNOT USE NOW THAT SHAPE IS ABSTRACT
             Shape s1 = new Shape();
             Shape s2 = new Shape(Matrix.makePoint3D(1, 2, 3), true);
 
             System.out.println(s1);
             System.out.println(s2);
+
+             */
 
             Circle c2 = new Circle(7.8,
                     Matrix.makePoint3D(4, 5, 6),
@@ -21,35 +26,37 @@ public class SuperShapeLand {
             System.out.println(c1);
 
             Shape c3 = new Circle();
-            //Declared: Shape
-            //Actual: Circle
+            // Declared: Shape
+            // Actual: Circle
             System.out.println(c3);
 
             Shape[] allShapes = new Shape[3];
-            allShapes[0] = new Shape();
+            allShapes[0] = new Circle(); //Shape();
             allShapes[1] = new Circle(4.0);
             allShapes[2] = new Rectangle(2, 9);
 
             printShapeAreas(allShapes);
 
+            Loadable item = new Circle();
+            item.load(new Scanner("4.5"));
 
+            Circle grief = new Circle(-3.0);
         }
-        catch(InvalidRadiusException e){
-            System.out.println("Bad Circle: " + r.getMessage());
+        catch(InvalidRadiusException r) {
+            System.err.println("Bad Circle: " + r.getMessage());
             r.printStackTrace();
         }
     }
 
-        public static void printShapeAreas(Shape [] allShapes){
-            System.out.println("ALL SHAPES:");
-            for(Shape s : allShapes) {
-                System.out.println(s);
-                System.out.println(s.getArea());
-                if(s instanceof Circle) {
-                    Circle c = (Circle) s;
-                    System.out.println("\tRadius= " + c.getRadius());
-                }
+    public static void printShapeAreas(Shape [] allShapes) {
+        System.out.println("ALL SHAPES:");
+        for(Shape s: allShapes) {
+            System.out.println(s);
+            System.out.println(s.getArea());
+            if(s instanceof Circle c) {
+                //Circle c = (Circle)s;
+                System.out.println("\tRadius=" + c.getRadius());
             }
-
+        }
     }
 }
