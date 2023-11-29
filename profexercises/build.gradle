@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.realemj.exercises15.observer.GothamCity"
+    mainClass = "edu.realemj.exercises15.adapter.TensorLand"
     mainModule = "profexercisesmod"
 }
 
