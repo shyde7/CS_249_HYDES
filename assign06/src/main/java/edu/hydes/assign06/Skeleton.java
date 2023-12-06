@@ -1,10 +1,10 @@
 package edu.hydes.assign06;
-
 import edu.hydes.assign04.ScreenBuffer;
 
 public class Skeleton extends Creature{
-
-        public Skeleton(){}
+        public Skeleton(){
+            super();
+        }
 
         public Skeleton(int row, int col) {
             super(row, col);

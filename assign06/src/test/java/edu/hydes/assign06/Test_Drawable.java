@@ -1,5 +1,5 @@
 package edu.hydes.assign06;
-import edu.realemj.assign04.ScreenBuffer;
+import edu.hydes.assign04.ScreenBuffer;
 //NOTE: CHANGE realemj to YOUR SITNETID!!!
 import org.testng.annotations.Test;
 

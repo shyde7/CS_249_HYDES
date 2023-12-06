@@ -21,7 +21,7 @@ test {
 }
 
 application {
-    mainClass = "edu.realemj.assign06.Daggerfall"
+    mainClass = "edu.hydes.assign06.Daggerfall"
     mainModule = "assign06mod"
     applicationDistribution.from('data') {
         into 'bin/data'

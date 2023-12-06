@@ -1,11 +1,17 @@
 plugins {   
-    id 'application'   
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
 }
 
 version = '1.0'
 
 repositories {  
     mavenCentral()    
+}
+
+javafx{
+    version = "20"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
@@ -19,7 +25,7 @@ test {
 }
 
 application {
-    mainClass = "edu.hydes.exercises15.adapter.TensorLand"
+    mainClass = "edu.hydes.exercises18.BasicFX"
     mainModule = "exercisesmod"
 }
 

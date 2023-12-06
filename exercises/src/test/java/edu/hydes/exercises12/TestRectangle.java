@@ -25,7 +25,7 @@ public class TestRectangle {
     @Test()
     public void test_toString(){
         Rectangle r = new Rectangle(5,7);
-        Assert.assertEquals(r.toString(), "Incorrect Area");
+        Assert.assertEquals(r.toString(), "Rectangle (width=5, height=7, center=(0.0,0.0,0.0), filled=false)");
     }
 
 }

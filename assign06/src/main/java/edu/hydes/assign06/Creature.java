@@ -6,8 +6,7 @@ public abstract class Creature implements Loadable, Drawable{
     private int row = 0;
     private int col = 0;
     protected Creature() {
-        row = 0;
-        col = 0;
+        this(0, 0);
     }
     protected Creature(int row, int col) {
         this.row = row;
@@ -27,11 +26,11 @@ public abstract class Creature implements Loadable, Drawable{
     }
     public void load(Scanner input)throws GameFileException{
         try{
-            row = input.nextInt();
-            col = input.nextInt();
+            this.row = input.nextInt();
+            this.col = input.nextInt();
         }catch(Exception e){
-            row = 0;
-            col = 0;
+            this.row = 0;
+            this.col = 0;
             throw new GameFileException("Error loading Creature", e);
         }
     }

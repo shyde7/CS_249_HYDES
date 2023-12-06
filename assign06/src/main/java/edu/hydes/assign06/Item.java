@@ -2,14 +2,11 @@ package edu.hydes.assign06;
 import java.util.Scanner;
 
 public class Item implements Loadable{
-
-
-
-    private String ID = "";
-    private int value = 0;
+    private String ID;
+    private int value;
     public Item(){
-        ID = "";
-        value = 0;
+        this.ID = "";
+        this.value = 0;
     }
     public Item(String ID, int value){
         this.ID = ID;
@@ -29,15 +26,15 @@ public class Item implements Loadable{
         this.value = value;
     }
     public String toString(){
-        return ID + "with value " + value;
+        return ID + " with value " + value;
     }
     public void load(Scanner input) throws GameFileException{
         try{
-            ID = input.nextLine();
-            value = input.nextInt();
+            this.ID = input.nextLine();
+            this.value = input.nextInt();
         }catch(Exception e) {
-            ID = "";
-            value = 0;
+            this.ID = "";
+            this.value = 0;
             throw new GameFileException("Error loading Item", e);
         }
     }
