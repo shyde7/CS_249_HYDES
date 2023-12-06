@@ -30,7 +30,7 @@ public class Item implements Loadable{
     }
     public void load(Scanner input) throws GameFileException{
         try{
-            this.ID = input.nextLine();
+            this.ID = input.next();
             this.value = input.nextInt();
         }catch(Exception e) {
             this.ID = "";
