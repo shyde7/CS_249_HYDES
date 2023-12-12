@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.hydes.assign05.BookOfLostTales"
+    mainClass = "edu.hydes.assign05.Silmarillion"
     mainModule = "assign05mod"    
 }
 
